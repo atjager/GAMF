@@ -1,0 +1,2 @@
+# GAMF
+ Szerveroldal beadandó
