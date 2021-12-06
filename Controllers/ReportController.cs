@@ -10,18 +10,12 @@ namespace GAMF.Controllers
     public class ReportController : Controller
 
     {
-
         private readonly GAMFDbContext _context;
-
         public ReportController(GAMFDbContext context)
-
         {
             //_context = context;
             _context = context ?? throw new ArgumentNullException(nameof(context));
-
         }
-
-
 
         public IActionResult EnrollmentDateReport()
 
@@ -32,14 +26,9 @@ namespace GAMF.Controllers
                          select new EnrollmentDateVM
 
                          {
-
                              EnrollmentDate = dateGroup.Key,
                              StudentCount = dateGroup.Count()
-
                          };
-
-
-
             return View(result.ToList());
 
         }

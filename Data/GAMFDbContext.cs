@@ -9,31 +9,17 @@ namespace GAMF.Data
     {
 
         public DbSet<Student> Students { get; set; }
-
         public DbSet<Enrollment> Enrollments { get; set; }
-
         public DbSet<Course> Courses { get; set; }
-
-
-
         public GAMFDbContext(DbContextOptions<GAMFDbContext> options) : base(options)
 
         {
-
-
 
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
 
         {
-
-            // HasData metódus használatánál azoknak a tulajdonságoknak is értéket kell adni 
-
-            // mely egyébként automatikusan generálódnának (pl. azonosítók) 
-
-
-
             modelBuilder.Entity<Student>().HasData(
 
                 new Student { Id = 1, FirstMidName = "Carson", LastName = "Alexander", EnrollmentDate = DateTime.Parse("2005-09-01") },
@@ -54,8 +40,6 @@ namespace GAMF.Data
 
             );
 
-
-
             modelBuilder.Entity<Course>().HasData(
 
                 new Course { CourseId = 1050, Title = "Chemistry", Credits = 3, },
@@ -73,8 +57,6 @@ namespace GAMF.Data
                 new Course { CourseId = 2042, Title = "Literature", Credits = 4, }
 
             );
-
-
 
             modelBuilder.Entity<Enrollment>().HasData(
 

@@ -59,35 +59,20 @@ namespace GAMF.Controllers
             };
             return View(enrollments.ToList());
         }
-
         public IActionResult Index2() => View();
-
-
-
         public JsonResult GetEnrollments()
 
         {
-
             var enrollments = _context.Enrollments
 
                 .Include(e => e.Course)
-
                 .Include(e => e.Student)
-
                 .Select(e => new EnrollmentListVM
-
                 {
-
                     CourseTitle = e.Course.Title,
-
                     StudentFullName = $"{e.Student.LastName} {e.Student.FirstMidName}",
-
                     Grade = e.Grade.ToString()
-
                 });
-
-
-
             return Json(enrollments.ToList());
 
         }
